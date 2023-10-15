@@ -17,7 +17,7 @@ class TeacherSerializer(serializers.ModelSerializer):
 
     # The field students is associated with the StudentSerializer. 
     # When a teacher object is serialized, it will include a list of students associated with that teacher.
-    
+
     students = StudentSerializer(many=True, read_only=True)
 
     # Refer to the docs of the StudentSerializer

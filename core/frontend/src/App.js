@@ -1,25 +1,29 @@
+import {useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 
+import StudentList from './components/StudentList';
+import TeacherList from './components/TeacherList';
+import StudentForm from './components/StudentForm';
+import TeacherForm from './components/TeacherForm';
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [refreshList, setRefreshList] = useState(false)
+
+	return (
+		<>
+			<div className="App">
+				
+				<div>
+					<StudentList refreshList={refreshList}/>
+					<TeacherList refreshList={refreshList}/>
+					<StudentForm refreshList={refreshList} setRefreshList={setRefreshList}/>
+					<TeacherForm refreshList={refreshList} setRefreshList={setRefreshList}/>
+				</div>
+			</div>
+		</>
+	);
 }
 
 export default App;
